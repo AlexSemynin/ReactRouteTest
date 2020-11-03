@@ -1,20 +1,31 @@
 import React from 'react';
-import Car from './Car/Car'
-import classes from './Cars.module.css'
+import Car from './Car/Car';
+import classes from './Cars.module.css';
+import {withRouter} from 'react-router-dom';
 
 const Cars = (props) =>{
 
+    
+const go2Home = ()=>{
+    props.history.push({
+        pathname: '/'
+    })
+};
     return(
-        <ul className={classes.Cars}>
-        {
-            props.cars.map((car,index) =>{
-                return(
-                    <Car key ={index} car={car}></Car>
-                )
-            })
-        }
-        </ul>
+        <React.Fragment>
+            <button onClick={go2Home.bind()}>GO TO HOME</button>
+            <ul className={classes.Cars}>
+            {
+                props.cars.map((car,index) =>{
+                    return(
+                        <li key ={index}><Car car={car}></Car></li>
+                    )
+                })
+            }
+            </ul>
+        </React.Fragment>
+
     )
 }
 
-export default Cars;
+export default withRouter(Cars);
