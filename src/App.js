@@ -9,6 +9,7 @@ import DetailCar from './components/Cars/Detail/DetailCar';
 class App extends React.Component{
 
   state = {
+    isLoggedIn: false,
     cars:[
       {name:'Mazda', year:2009, id:0},
       {name:'Kia', year:2017, id:1},
@@ -16,6 +17,11 @@ class App extends React.Component{
     ]
   };
 
+  ToggleLog = ()=>{
+    this.setState({
+      isLoggedIn: !this.state.isLoggedIn
+    });
+  }
 
   render(){
 
@@ -35,8 +41,13 @@ class App extends React.Component{
           </ul>
         </nav>
 
+    <button onClick={this.ToggleLog.bind()}>{this.state.isLoggedIn? "разлогиниться" : "Залогиниться"}</button>
         <Route path="/" exact render={() =>{return(<h1>Home Page</h1>)}}/>
-        <Route path="/about" exact component={About}/>
+        {
+          this.state.isLoggedIn ?
+            <Route path="/about" exact component={About}/> 
+            : null
+        }
         <Route path="/cars" exact render={()=><Cars cars={this.state.cars}/>}/>
         <Route path='/cars/:nameCar' component={DetailCar}/>
       </div>
