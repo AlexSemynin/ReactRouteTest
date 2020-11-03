@@ -26,7 +26,7 @@ class App extends React.Component{
               <a href="/">Home</a>
             </li>
             <li>
-              <a>About</a>
+              <a href="/About">About</a>
             </li>
           </ul>
         </nav>
