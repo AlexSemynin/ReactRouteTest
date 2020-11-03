@@ -3,7 +3,7 @@ import React from 'react';
 import About from './components/About/About';
 import Cars from './components/Cars/Cars';
 import {Route, NavLink} from 'react-router-dom';
-
+import DetailCar from './components/Cars/Detail/DetailCar';
 
 
 class App extends React.Component{
@@ -38,6 +38,7 @@ class App extends React.Component{
         <Route path="/" exact render={() =>{return(<h1>Home Page</h1>)}}/>
         <Route path="/about" exact component={About}/>
         <Route path="/cars" exact render={()=><Cars cars={this.state.cars}/>}/>
+        <Route path='/cars/:nameCar' component={DetailCar}/>
       </div>
 
     )

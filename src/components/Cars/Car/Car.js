@@ -6,7 +6,12 @@ const Car = (props) =>{
     console.log(props);
 
     return(
-        <div className={classes.carWrapper}>
+        <div 
+            className={classes.carWrapper}
+            onClick={()=>{
+                props.history.push('cars/'+props.car.name.toLowerCase());
+            }}
+        >
             <div style={{fontSize: '25px', marginBottom: '10px'}}>
                 car name: <strong>{props.car.name}</strong>
             </div>
