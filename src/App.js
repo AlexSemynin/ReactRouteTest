@@ -2,6 +2,7 @@ import './App.css';
 import React from 'react';
 import About from './components/About/About';
 import Cars from './components/Cars/Cars';
+import {Route, NavLink} from 'react-router-dom';
 
 
 
@@ -23,15 +24,20 @@ class App extends React.Component{
         <nav>
           <ul className="nav">
             <li>
-              <a href="/">Home</a>
+              <NavLink to="/">Home</NavLink>
             </li>
             <li>
-              <a href="/About">About</a>
+              <NavLink to="/about">About</NavLink>
+            </li>
+            <li>
+              <NavLink to="/cars">Cars</NavLink>
             </li>
           </ul>
         </nav>
-        <About/>
-        <Cars cars={this.state.cars}/>
+
+        <Route path="/" exact render={() =>{return(<h1>Home Page</h1>)}}/>
+        <Route path="/about" exact component={About}/>
+        <Route path="/cars" exact render={()=><Cars cars={this.state.cars}/>}/>
       </div>
 
     )
