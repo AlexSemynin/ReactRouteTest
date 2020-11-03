@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import React from 'react';
 import About from './components/About/About';
 import Cars from './components/Cars/Cars';
@@ -24,7 +24,7 @@ class App extends React.Component{
         <nav>
           <ul className="nav">
             <li>
-              <NavLink to="/">Home</NavLink>
+              <NavLink exact to="/">Home</NavLink>
             </li>
             <li>
               <NavLink to="/about">About</NavLink>

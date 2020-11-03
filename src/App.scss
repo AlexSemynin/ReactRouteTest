@@ -1,0 +1,17 @@
+.wrapper{
+    nav{
+        ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            margin-right: 15px;
+        }
+        li{
+            a.active{
+                color: rgba($color: #ff1c1c, $alpha: 0.7);
+            }
+        }
+    }
+}
